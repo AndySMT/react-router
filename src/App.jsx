@@ -13,7 +13,9 @@ function App() {
         <Route Component={DefaultLayout}>
           <Route index Component={Home}></Route>
           <Route path="/contact" Component={contact}></Route>
-          <Route path="/books" Component={Books}></Route>
+          <Route path="/books" Component={Books}>
+            <Route path="/books/:id" Component={Books} />
+          </Route>
           <Route path="/about" Component={About}></Route>
         </Route>
       </Routes>

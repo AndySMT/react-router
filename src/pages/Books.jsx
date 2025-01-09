@@ -35,6 +35,9 @@ const Books = () => {
   }
   return (
     <main className="container py-3">
+      <div>
+        <h1 className="text-center mb-4">{"our books".toUpperCase()}</h1>
+      </div>
       <div className="row gx-4 gy-4">
         {books.map((book) => (
           <div className="col-12 col-md-4 col-lg-3" key={book.id}>

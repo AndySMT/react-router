@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function Card({ data, onDeleteBook }) {
   return (
     <div className="card">
@@ -8,6 +9,9 @@ function Card({ data, onDeleteBook }) {
         <a href="#" className="btn btn-primary" onClick={onDeleteBook}>
           Cancella
         </a>
+        <Link to={`/books/${data.id}`} className="btn btn-primary m-2">
+          Dettagli
+        </Link>
       </div>
     </div>
   );
