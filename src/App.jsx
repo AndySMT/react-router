@@ -1,10 +1,12 @@
-import Main from "./components/Main";
+// import Main from "./components/Main";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DefaultLayout from "./pages/DefaultLayout";
 import contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Books from "./pages/books";
 import About from "./pages/About";
+import Book from "./pages/Book";
+import Error from "./pages/Error";
 
 function App() {
   return (
@@ -13,11 +15,14 @@ function App() {
         <Route Component={DefaultLayout}>
           <Route index Component={Home}></Route>
           <Route path="/contact" Component={contact}></Route>
-          <Route path="/books" Component={Books}>
-            <Route path="/books/:id" Component={Books} />
+          <Route path="/books">
+            <Route index Component={Books}></Route>
+            <Route path=":id" Component={Book} />
+            <Route path="*" Component={Error} />
           </Route>
           <Route path="/about" Component={About}></Route>
         </Route>
+        <Route path="*" Component={Error} />
       </Routes>
     </BrowserRouter>
     /* <>
