@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import Card from "../components/Card";
+import { Link } from "react-router-dom";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 const bookEndPoint = "/books";
@@ -36,7 +37,12 @@ const Books = () => {
   return (
     <main className="container py-3">
       <div>
-        <h1 className="text-center mb-4">{"our books".toUpperCase()}</h1>
+        <h1 className="text-center mb-3 text-dark">
+          {"our books".toUpperCase()}
+        </h1>
+        <Link to="/books/newbook" className="btn btn-primary mb-5  w-100">
+          Aggiungi Libro
+        </Link>
       </div>
       <div className="row gx-4 gy-4">
         {books.length > 0

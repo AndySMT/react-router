@@ -17,7 +17,7 @@ export default function Book() {
         setBook(res.data.item);
       })
       .catch((error) => {
-        console.log("Error", error);
+        console.log("Errordwdadwdawdsdjfsjf", error);
       });
   }, [id]);
   return (

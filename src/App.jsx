@@ -7,6 +7,7 @@ import Books from "./pages/books";
 import About from "./pages/About";
 import Book from "./pages/Book";
 import Error from "./pages/Error";
+import NewBook from "./pages/NewBook";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/books">
             <Route index Component={Books}></Route>
             <Route path=":id" Component={Book} />
+            <Route path="newbook" Component={NewBook} />
             <Route path="*" Component={Error} />
           </Route>
           <Route path="/about" Component={About}></Route>
