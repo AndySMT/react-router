@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 const bookEndPoint = "/books";
@@ -13,6 +14,8 @@ const initialState = {
 
 export default function NewBook() {
   const [NewBook, setNewBook] = useState(initialState);
+
+  const navigate = useNavigate();
   function handleBookData(e) {
     setNewBook({ ...NewBook, [e.target.name]: e.target.value });
   }
@@ -61,7 +64,9 @@ export default function NewBook() {
             value={NewBook.thumbnail}
             onChange={handleBookData}
           />
-          <button type="submit">Aggiungi</button>
+          <button type="submit" onClick={() => navigate("/books")}>
+            Aggiungi
+          </button>
         </form>
       </div>
     </div>
