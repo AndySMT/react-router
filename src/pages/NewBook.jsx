@@ -38,6 +38,8 @@ export default function NewBook() {
       navigate("/books");
     } else {
       alert("Salvataggio annullato");
+      setIsActive(false);
+      setNewBook(initialState);
     }
   };
 
