@@ -24,7 +24,7 @@ export default function NewBook() {
     axios
       .post(`${apiUrl}${bookEndPoint}`, NewBook)
       .then((res) => {
-        setNewBook(initialState);
+        /* setNewBook(initialState); */
         setIsActive(true);
         console.log("Libro creato ", res.data.item);
       })
@@ -97,7 +97,8 @@ export default function NewBook() {
                 <strong>Descrizione:</strong> {NewBook.description}
               </p>
               <div>
-                <strong>Immagine:</strong>{" "}
+                <strong>Immagine:</strong>
+                {NewBook.thumbnail}
                 {NewBook.thumbnail ? (
                   <img
                     src={NewBook.thumbnail}
