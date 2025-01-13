@@ -8,25 +8,30 @@ import About from "./pages/About";
 import Book from "./pages/Book";
 import Error from "./pages/Error";
 import NewBook from "./pages/NewBook";
-
+//import { useContext } from "react";
+//import ProvaContext from "./context/ProvaContext";
+import { BookProvider } from "./context/ProvaContext";
 function App() {
+  //const prova = useContext(ProvaContext);
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route Component={DefaultLayout}>
-          <Route index Component={Home}></Route>
-          <Route path="/contact" Component={contact}></Route>
-          <Route path="/books">
-            <Route index Component={Books}></Route>
-            <Route path=":id" Component={Book} />
-            <Route path="newbook" Component={NewBook} />
-            <Route path="*" Component={Error} />
+    <BookProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route Component={DefaultLayout}>
+            <Route index Component={Home}></Route>
+            <Route path="/contact" Component={contact}></Route>
+            <Route path="/books">
+              <Route index Component={Books}></Route>
+              <Route path=":id" Component={Book} />
+              <Route path="newbook" Component={NewBook} />
+              <Route path="*" Component={Error} />
+            </Route>
+            <Route path="/about" Component={About}></Route>
           </Route>
-          <Route path="/about" Component={About}></Route>
-        </Route>
-        <Route path="*" Component={Error} />
-      </Routes>
-    </BrowserRouter>
+          <Route path="*" Component={Error} />
+        </Routes>
+      </BrowserRouter>
+    </BookProvider>
     /* <>
       <Header />
       <Main />
